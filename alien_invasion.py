@@ -2,10 +2,13 @@ import sys
 
 import pygame
 
+from setting import Settings
+
 def run_game():
-    # Initializes game and create a screen object.
+    # Initializes pygame, setting and create a screen object.
     pygame.init()
-    screen = pygame.display.set_mode((1200,600))
+    ai_settings = Settings()
+    screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
 
     # Set the backgound color
     bg_color = (240, 210, 130)
@@ -20,7 +23,7 @@ def run_game():
                 sys.exit()
 
         # Redraw the screen during each pass through the loop
-        screen.fill(bg_color)
+        screen.fill(ai_settings.bg_color)
 
         # make the most recently drawn screen visible
         pygame.display.flip()
